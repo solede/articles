@@ -4,7 +4,7 @@ ORACLEは統計情報を元に実行計画を立てますが、０件の状態�
 
 
 ##０件統計のやばさがわかる即興スクリプト
-以下を実行すると**索引スキャンではなくFULLスキャンの実行計画が採択されます**。データとしてはcol1=1で10万件中1件まで絞り込めるデータ分布のため100%索引のほうが早いデータですが、0件
+以下を実行すると**索引スキャンではなくFULLスキャンの実行計画が採択されます**。データとしてはcol1=1で10万件中1件まで絞り込めるデータ分布のため100%索引のほうが早いデータですが、0件状態で統計情報をとると現状のバージョンでは不具合ではなく仕様としてこのような動作となります。
 
     --表作成
     create table b(col1 number ,col2 varchar2(100),col3 char(2000));
@@ -59,8 +59,9 @@ ORACLEは統計情報を元に実行計画を立てますが、０件の状態�
               0  sorts (disk)
               1  rows processed
 
-
+##なぜおかしな実行計画になるのか
+ORACLEは統計情報を元に様々な実行計画で最もCOSTの低いじっこうけいか
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjUxMTE1ODMsLTE5MTIwNzczNzgsLT
+eyJoaXN0b3J5IjpbLTE3Mjk2NzkxMzEsLTE5MTIwNzczNzgsLT
 E3MzU0MjIxOTldfQ==
 -->
