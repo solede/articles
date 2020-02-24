@@ -118,10 +118,11 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 
 ## 0件で統計は収集しない
 
-常に実態として0件であることがわかる場合は0件状態での統計は収集しないことをお勧めします。
+0件で収集されるとデータが0件で亡くなった場合極端に劣化するような実行計画が選択されやすくなるため常に0件である表以外は0件状態での統計は収集しないことをお勧めします。
+0件で統計
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTA0MzE1NDIsNjQyNDMyMjUsLTc1Nz
+eyJoaXN0b3J5IjpbLTEzMjgzMTU3NTgsNjQyNDMyMjUsLTc1Nz
 Q5NDQ0OSwyNTkzMjU1OTcsLTUwMDYwMzg5MywxMDcxOTExODUz
 LDEzNDMyNTkzNDVdfQ==
 -->
