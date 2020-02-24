@@ -100,9 +100,27 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 
 ## なぜFULLスキャンのコストが異常に低いのか
 
-統計情報を0件の状態で取得しているため当然FULLスキャンも0件の表に対するFULLスキャンの想定でCOSTが計算されるためです。統計情
+統計情報を0件の状態で取得しているため当然FULLスキャンも0件の表に対するFULLスキャンの想定でCOSTが計算されるためです。表の統計情報はDBA_TABLES等で確認することができますが、以下の通り表のブロック数
+
+
+    select table_name,num_rows,blocks from user_tables where table_name = 'B';
+    TABLE_NAME
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      NUM_ROWS     BLOCKS
+    ---------- ----------
+    B
+             0          0
+    
+    select index_name,blevel,leaf_blocks from user_indexes where table_name = 'B';
+    INDEX_NAME
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        BLEVEL LEAF_BLOCKS
+    ---------- -----------
+    B_IX01
+             2       33334
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mzc0NDE3NTgsLTc1NzQ5NDQ0OSwyNT
-kzMjU1OTcsLTUwMDYwMzg5MywxMDcxOTExODUzLDEzNDMyNTkz
-NDVdfQ==
+eyJoaXN0b3J5IjpbLTg1NzQ1Mjg3MywtNzU3NDk0NDQ5LDI1OT
+MyNTU5NywtNTAwNjAzODkzLDEwNzE5MTE4NTMsMTM0MzI1OTM0
+NV19
 -->
