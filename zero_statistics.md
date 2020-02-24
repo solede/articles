@@ -59,9 +59,10 @@ ORACLEは統計情報を元に実行計画を立てますが、０件の状態�
               0  sorts (disk)
               1  rows processed
 
-##なぜおかしな実行計画になるのか
-ORACLEは統計情報を元に様々な実行計画で最もCOSTの低いじっこうけいか
+## なぜおかしな実行計画になるのか
+
+ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行計画を選択する動きをします。上記の例ではFULLスキャンの実行計画のCOSTが**2**と非常に低いことが確認できます。試しにヒントで索引スキャンをセンタkう
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mjk2NzkxMzEsLTE5MTIwNzczNzgsLT
-E3MzU0MjIxOTldfQ==
+eyJoaXN0b3J5IjpbMTEwMTg1NjI0MSwtMTkxMjA3NzM3OCwtMT
+czNTQyMjE5OV19
 -->
