@@ -98,11 +98,11 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
               0  sorts (disk)
               1  rows processed
 
-## なぜ0件統計だとFULLスキャンのコストが低いのか
+## なぜFULLスキャンのコストが異常に低いのか
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0Mjc0OTY5MiwtNzU3NDk0NDQ5LDI1OT
-MyNTU5NywtNTAwNjAzODkzLDEwNzE5MTE4NTMsMTM0MzI1OTM0
-NV19
+eyJoaXN0b3J5IjpbNzM2MDQ5Mzg4LC03NTc0OTQ0NDksMjU5Mz
+I1NTk3LC01MDA2MDM4OTMsMTA3MTkxMTg1MywxMzQzMjU5MzQ1
+XX0=
 -->
