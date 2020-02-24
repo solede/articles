@@ -3,8 +3,8 @@
 ORACLEは統計情報を元に実行計画を立てますが、典型的におかしな実行計画になるケースとして０件状態で統計情報を収集したため、ということがよくあります。本ページでは実際に0件状態で統計取集することで遅い実行計画を選択させ、何故おかしくなるのかを解説します。
 
 
-## ０件統計でハズレ実行計画を選択させる
-以下を実行すると**索引スキャンではなくFULLスキャンの実行計画が採択されます**。データとしてはcol1=1で10万件中1件まで絞り込めるデータ分布のため100%索引のほうが早くなりますが、0件状態で統計情報をとると現状のバージョンでは不具合ではなく仕様としてこのような動作になります。
+## ０件統計によりハズレ実行計画を選択させる
+以下を実行すると**索引スキャンではなくFULLスキャンの実行計画が採択されます**。データとしてはcol1=1で10万件中1件まで絞り込めるデータ分布のため100%索引のほうが早くなりますが、0件状態で統計情報をとると2020年時点で最新の19cのバージョンであっても不具合ではなく仕様としてこのような動作になります。
 
     --表作成
     create table b(col1 number ,col2 varchar2(100),col3 char(2000));
@@ -118,7 +118,7 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 
 ## 0件統計
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDc5NTUxMTQsNjQyNDMyMjUsLTc1Nz
-Q5NDQ0OSwyNTkzMjU1OTcsLTUwMDYwMzg5MywxMDcxOTExODUz
-LDEzNDMyNTkzNDVdfQ==
+eyJoaXN0b3J5IjpbODQwMDE4Mjc1LDY0MjQzMjI1LC03NTc0OT
+Q0NDksMjU5MzI1NTk3LC01MDA2MDM4OTMsMTA3MTkxMTg1Mywx
+MzQzMjU5MzQ1XX0=
 -->
