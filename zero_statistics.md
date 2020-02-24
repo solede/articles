@@ -116,13 +116,13 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
     B_IX01                                  2       33334
 
 
-## 0件で統計は収集しない
+## 0件で統計情報は収集しないこと
 
-0件で収集されるとデータが0件で亡くなった場合極端に劣化するような実行計画が選択されやすくなるため常に0件である表以外は0件状態での統計は収集しないことをお勧めします。
+0件で収集されるとデータが0件で亡くなった場合極端に劣化するような実行計画が選択されやすくなるため常に0件である表以外は0件状態での統計情報収集はしないことをお勧めします。
 0件で統計
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjgzMTU3NTgsNjQyNDMyMjUsLTc1Nz
-Q5NDQ0OSwyNTkzMjU1OTcsLTUwMDYwMzg5MywxMDcxOTExODUz
-LDEzNDMyNTkzNDVdfQ==
+eyJoaXN0b3J5IjpbLTg3NTgyNzA1LDY0MjQzMjI1LC03NTc0OT
+Q0NDksMjU5MzI1NTk3LC01MDA2MDM4OTMsMTA3MTkxMTg1Mywx
+MzQzMjU5MzQ1XX0=
 -->
