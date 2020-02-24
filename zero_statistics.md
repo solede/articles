@@ -1,6 +1,6 @@
 ## ０件統計は何故だめなのか
 
-ORACLEは統計情報を元に実行計画を立てますが、典型的におかしな実行計画になるケースとして０件の状態で統計情報を収集していることがよくあります。本ページでは実際に0件状態の統計で遅い実行計画を選択させ、何故おかしくなるのかを解説します。
+ORACLEは統計情報を元に実行計画を立てますが、典型的におかしな実行計画になるケースとして０件状態で統計情報を収集したためていることがよくあります。本ページでは実際に0件状態の統計で遅い実行計画を選択させ、何故おかしくなるのかを解説します。
 
 
 ## ０件統計のやばさがわかるスクリプト
@@ -115,8 +115,10 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
     ------------------------------ ---------- -----------
     B_IX01                                  2       33334
 
+
+## 0件統計
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ4NjY2ODAwLDY0MjQzMjI1LC03NTc0OT
-Q0NDksMjU5MzI1NTk3LC01MDA2MDM4OTMsMTA3MTkxMTg1Mywx
-MzQzMjU5MzQ1XX0=
+eyJoaXN0b3J5IjpbLTUwOTM5NTEzNiw2NDI0MzIyNSwtNzU3ND
+k0NDQ5LDI1OTMyNTU5NywtNTAwNjAzODkzLDEwNzE5MTE4NTMs
+MTM0MzI1OTM0NV19
 -->
