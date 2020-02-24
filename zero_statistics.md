@@ -61,8 +61,10 @@ ORACLEは統計情報を元に実行計画を立てますが、０件の状態�
 
 ## なぜおかしな実行計画になるのか
 
-ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行計画を選択する動きをします。上記の例ではFULLスキャンの実行計画のCOSTが**2**と非常に低いことが確認できます。試しにヒントで索引スキャンをセンタkう
+ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行計画を選択する動きをします。上記の例では**FULLスキャンの実行計画のCOSTが2**と非常に低いことがわかりますが、試しにヒントで索引スキャンを強制すると**2より大きい3**となっています。
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwMTg1NjI0MSwtMTkxMjA3NzM3OCwtMT
-czNTQyMjE5OV19
+eyJoaXN0b3J5IjpbNDYwNjMyMDUxLC0xOTEyMDc3Mzc4LC0xNz
+M1NDIyMTk5XX0=
 -->
