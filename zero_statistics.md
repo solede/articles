@@ -59,9 +59,9 @@ ORACLEは統計情報を元に実行計画を立てますが、典型的にお�
               0  sorts (disk)
               1  rows processed
 
-## なぜおかしな実行計画になるのか
+## なぜFULLスキャンを選ぶのか
 
-ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行計画を選択する動きをします。上記の例では**FULLスキャンの実行計画のCOSTが2**と非常に低いことがわかりますが、試しにヒントで索引スキャンを強制してみると**2より大きい336となっており索引スキャンよりもFULLスキャンのほうがCOSTが低い(早い)**と判断していることがうかがえます。
+ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行計画を選択する動きをします。上記の例では**FULLスキャンの実行計画のCOSTが2**と非常に低いことがわかり、本来適切であろう索引スキャンをヒントで強制してみると**2より大きい336となっており索引スキャンよりもFULLスキャンのほうがCOSTが低い(早い)**と判断していることがうかがえます。
 
     SQL> select /*+ index(b) */ count(*) from B where col1 = 1;
     
@@ -97,6 +97,9 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
               0  sorts (disk)
               1  rows processed
 
+## 0件統計だとFULLスキャンのコストが低いのか
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQzNzg2MzksMTM0MzI1OTM0NV19
+eyJoaXN0b3J5IjpbMTA3MTkxMTg1MywxMzQzMjU5MzQ1XX0=
 -->
