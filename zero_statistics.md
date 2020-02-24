@@ -100,9 +100,9 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 
 ## なぜFULLスキャンのコストが異常に低いのか
 
-
+統計情報を0件の状態で取得しているため当然FULLスキャンも0件の表に対するFULLスキャンの想定でCOSTが計算されるためです。統計情
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM2MDQ5Mzg4LC03NTc0OTQ0NDksMjU5Mz
-I1NTk3LC01MDA2MDM4OTMsMTA3MTkxMTg1MywxMzQzMjU5MzQ1
-XX0=
+eyJoaXN0b3J5IjpbLTE3Mzc0NDE3NTgsLTc1NzQ5NDQ0OSwyNT
+kzMjU1OTcsLTUwMDYwMzg5MywxMDcxOTExODUzLDEzNDMyNTkz
+NDVdfQ==
 -->
