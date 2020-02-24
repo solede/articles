@@ -4,6 +4,7 @@ ORACLEは統計情報を元に実行計画を立てますが、０件の状態�
 
 
 ##０件統計のやばさがわかる即興スクリプト
+以下の通り、データとしてはcol1=1で10万件中1件まで絞り込めるデータ分布のため100%索引のほうがはｙ
 
     --表作成
     create table b(col1 number ,col2 varchar2(100),col3 char(2000));
@@ -60,6 +61,6 @@ ORACLEは統計情報を元に実行計画を立てますが、０件の状態�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTIwNzczNzgsLTE3MzU0MjIxOTldfQ
-==
+eyJoaXN0b3J5IjpbLTgzNzE0NjAwNywtMTkxMjA3NzM3OCwtMT
+czNTQyMjE5OV19
 -->
