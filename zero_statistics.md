@@ -4,7 +4,7 @@ ORACLEは統計情報を元に実行計画を立てますが、典型的にお�
 
 
 ## ０件統計によりハズレ実行計画を選択させる
-以下を実行すると**索引スキャンではなくFULLスキャンの実行計画が採択されます**。データとしてはcol1=1で10万件中1件まで絞り込めるデータ分布のため100%索引のほうが早くなりますが、0件状態で統計情報をとると2020年時点で最新の19cのバージョンであっても不具合ではなく仕様としてこのような動作になります。
+以下を実行すると**索引スキャンではなくFULLスキャンの実行計画が採択されます**。データとしては`col1=1`で10万件中1件まで絞り込めるデータ分布のため100%索引のほうが早くなりますが、0件状態で統計情報をとると2020年時点で最新の19cのバージョンであっても不具合ではなく仕様としてこのような動作になります。
 
     --表作成
     create table b(col1 number ,col2 varchar2(100),col3 char(2000));
@@ -120,7 +120,7 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 
 0件で統計情報収集されるとデータが0件ではなくなった場合極端に劣化するような実行計画が選択されやすくなるため常に0件である表以外は0件状態での統計情報収集はしないことをお勧めします。経験則では0件で統計を収集した場合よりかは統計を収集しないほうがまだましな実行計画になる場合が多いです。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2Nzk1MTgxNCw2NDI0MzIyNSwtNzU3ND
-k0NDQ5LDI1OTMyNTU5NywtNTAwNjAzODkzLDEwNzE5MTE4NTMs
-MTM0MzI1OTM0NV19
+eyJoaXN0b3J5IjpbLTEwMTcxMjgzNDgsLTY2Nzk1MTgxNCw2ND
+I0MzIyNSwtNzU3NDk0NDQ5LDI1OTMyNTU5NywtNTAwNjAzODkz
+LDEwNzE5MTE4NTMsMTM0MzI1OTM0NV19
 -->
