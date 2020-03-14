@@ -66,39 +66,39 @@ Predicate Information (identified by operation id):
 ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行計画を選択する動きをします。上記の例では**FULLスキャンの実行計画のCOSTが2**と非常に低いことがわかり、本来適切であろう索引スキャンをヒントで強制してみると **2より大きい336となっており索引スキャンよりもFULLスキャンのほうがCOSTが低い(早い)** と判断しているためFULLスキャンが選択されていることがわかります。
 
 ```sql
-   SQL> select /*+ index(b) */ count(*) from B where col1 = 1;
+SQL> select /*+ index(b) */ count(*) from B where col1 = 1;
    
-   実行計画
-   ----------------------------------------------------------
-   Plan hash value: 2794869083
+実行計画
+----------------------------------------------------------
+Plan hash value: 2794869083
    
-   ----------------------------------------------------------------------------
-   | Id  | Operation         | Name   | Rows  | Bytes | Cost (%CPU)| Time     |
-   ----------------------------------------------------------------------------
-   |   0 | SELECT STATEMENT  |        |     1 |    13 |   336   (0)| 00:00:01 |
-   |   1 |  SORT AGGREGATE   |        |     1 |    13 |            |          |
-   |*  2 |   INDEX RANGE SCAN| B_IX01 |     1 |    13 |   336   (0)| 00:00:01 |
-   ----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+| Id  | Operation         | Name   | Rows  | Bytes | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------
+|   0 | SELECT STATEMENT  |        |     1 |    13 |   336   (0)| 00:00:01 |
+|   1 |  SORT AGGREGATE   |        |     1 |    13 |            |          |
+|*  2 |   INDEX RANGE SCAN| B_IX01 |     1 |    13 |   336   (0)| 00:00:01 |
+----------------------------------------------------------------------------
    
-   Predicate Information (identified by operation id):
-   ---------------------------------------------------
+Predicate Information (identified by operation id):
+---------------------------------------------------
    
-      2 - access("COL1"=1)
+   2 - access("COL1"=1)
    
    
-   統計
-   ----------------------------------------------------------
-             0  recursive calls
-             0  db block gets
-             3  consistent gets
-             0  physical reads
-             0  redo size
-           573  bytes sent via SQL*Net to client
-           415  bytes received via SQL*Net from client
-             2  SQL*Net roundtrips to/from client
-             0  sorts (memory)
-             0  sorts (disk)
-             1  rows processed
+統計
+----------------------------------------------------------
+          0  recursive calls
+          0  db block gets
+          3  consistent gets
+          0  physical reads
+          0  redo size
+        573  bytes sent via SQL*Net to client
+        415  bytes received via SQL*Net from client
+          2  SQL*Net roundtrips to/from client
+          0  sorts (memory)
+          0  sorts (disk)
+          1  rows processed
 ```
 
 ## なぜFULLスキャンのコストが異常に低いのか
@@ -107,22 +107,23 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 。これに対し、索引は10万件の状態で統計を収集(索引作成時に自動で統計情報が収集される)しているためリーフブロック数が33334となっており索引スキャンのCOSTはFULLスキャンよりも大きくなります。
 
 ```sql
-   col table_name format a30
-   select table_name,num_rows,blocks from user_tables where table_name = 'B';
-   TABLE_NAME                       NUM_ROWS     BLOCKS
-   ------------------------------ ---------- ----------
-   B                                       0          0
+col table_name format a30
+select table_name,num_rows,blocks from user_tables where table_name = 'B';
+TABLE_NAME                       NUM_ROWS     BLOCKS
+------------------------------ ---------- ----------
+B                                       0          0
    
-   col index_name format a30
-   select index_name,blevel,leaf_blocks from user_indexes where table_name = 'B';
-   INDEX_NAME                         BLEVEL LEAF_BLOCKS
-   ------------------------------ ---------- -----------
-   B_IX01                                  2       33334
+col index_name format a30
+select index_name,blevel,leaf_blocks from user_indexes where table_name = 'B';
+INDEX_NAME                         BLEVEL LEAF_BLOCKS
+------------------------------ ---------- -----------
+B_IX01                                  2       33334
 ```
 
 ## まとめ：0件で統計情報は収集しない
 
 0件で統計情報収集されるとデータが0件ではなくなった場合極端に劣化するような実行計画が選択されやすくなるため常に0件である表以外は0件状態での統計情報収集はしないことをお勧めします。経験則では0件で統計を収集した場合よりかは統計を収集しないほうがまだましな実行計画になる場合が多いです。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTE0MzY1NTYsLTY0NjY4NzE5MF19
+eyJoaXN0b3J5IjpbNzkzMjc0NDAyLC0xODkxNDM2NTU2LC02ND
+Y2ODcxOTBdfQ==
 -->
