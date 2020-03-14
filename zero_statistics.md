@@ -55,10 +55,10 @@ Predicate Information (identified by operation id):
           0  redo size
         573  bytes sent via SQL*Net to client
         399  bytes received via SQL*Net from client
-           2  SQL*Net roundtrips to/from client
-             0  sorts (memory)
-             0  sorts (disk)
-             1  rows processed
+          2  SQL*Net roundtrips to/from client
+          0  sorts (memory)
+          0  sorts (disk)
+          1  rows processed
 ```
 
 ## なぜFULLスキャンになるのか
@@ -124,5 +124,5 @@ ORACLEは統計情報を元に様々な実行計画で最もCOSTの低い実行�
 
 0件で統計情報収集されるとデータが0件ではなくなった場合極端に劣化するような実行計画が選択されやすくなるため常に0件である表以外は0件状態での統計情報収集はしないことをお勧めします。経験則では0件で統計を収集した場合よりかは統計を収集しないほうがまだましな実行計画になる場合が多いです。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjcyMTkwNTQsLTY0NjY4NzE5MF19
+eyJoaXN0b3J5IjpbLTE4OTE0MzY1NTYsLTY0NjY4NzE5MF19
 -->
