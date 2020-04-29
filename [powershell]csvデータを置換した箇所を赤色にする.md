@@ -15,7 +15,7 @@
 <span class="token function">Invoke-WebRequest</span> <span class="token string">"https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip"</span> <span class="token operator">-</span>OutFile <span class="token string">"ken_all.zip"</span>
 
 <span class="token comment">#データがある場合削除</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">test-path</span> <span class="token string">".\ken_all.zip"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">remove-item</span> <span class="token string">"ken_all.csv"</span><span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">test-path</span> <span class="token string">".\ken_all.csv"</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">remove-item</span> <span class="token string">"ken_all.csv"</span><span class="token punctuation">}</span>
 
 <span class="token function">write-host</span> <span class="token string">"解凍"</span>
 Expand<span class="token operator">-</span>Archive <span class="token string">"ken_all.zip"</span> <span class="token operator">-</span>DestinationPath <span class="token string">".\"</span>
